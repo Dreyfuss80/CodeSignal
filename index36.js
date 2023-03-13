@@ -51,27 +51,22 @@ function solution(sequence) {
 solution(sequence);
 */
 
-let sequence = [1, 3, 2, 1];
+let sequence = [123, -17, -5, 1, 2, 3, 12, 43, 45];
 
-function almostIncreasingSequence(sequence) {
-    var found = 0;
-    for (var i=0;i<sequence.length;i++) {
-        
-      console.log(`El valor i = ${i} y el valor i-1 es ${i-1}`);
-      
-      if(sequence[i] <= sequence[i-1]) {
-        found++;
-        console.log(`el valor de found es ${found}`);
-        // check if more than one nonincreasing found
-        if(found > 1) return false; 
-        
-        // check if second previous number is equal to / bigger than current number
-        // and previous number is equalto / bigger than next number
-        if(sequence[i] <= sequence[i-2] && sequence[i+1] <= sequence[i-1]) return false; 
-      }
-      
-    } 
+function solution(arreglos) {
+    let count = 0;
+    
+    for(let i = 0; i < sequence.length; i++){
+    
+    if(sequence[i] <= sequence[i-1]) count++;
+    
+    if (count > 1) return false;
+    
+    if ( sequence[i] <= sequence[i-2] && sequence[i+1] <= sequence[i-1] ) return false
+    
+    }
     return true;
 }
 
-almostIncreasingSequence();
+let scope = solution(sequence);
+console.log(scope);
